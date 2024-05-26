@@ -134,7 +134,19 @@ public class ClassPanel extends JPanel {
     }
 
     public static String getClassChosen() {
-        return classChosen;
+        switch (classChosen) {
+            case "Cavaleiro":
+                return "sword";
+            case "Arauto":
+                return "Herald";
+            case "Feiticeiro":
+                return "staff";
+            case "Clérigo":
+                return "Cleric";
+            default:
+                return "sword";
+        }
+
     }
 
     public JPanel getBackGNDPanel() {

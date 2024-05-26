@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import Scripts.AudioHandler;
 import Scripts.ImagesConversion.ImageCreate;
+import Scripts.ImagesConversion.StringToPath;
 import Scripts.Panels.CharacterCreation.AppearancePanel;
 import Scripts.Panels.CharacterCreation.ChosenAttPanel;
 import Scripts.Panels.CharacterCreation.ClassPanel;
@@ -50,13 +51,23 @@ public class CharacterCreation extends JPanel implements ActionListener {
         charImage.setIconFile("Images\\charImage.png");
         charImage.imageSetter();
 
+        String helmChosen = GarmentsPanel.helmetType.toString();
+        helmChosen = StringToPath.convertPng(helmChosen);
+
         ImageCreate helmImage = new ImageCreate(1080, 0, 500, 750);
-        helmImage.setIconFile("Images\\helmImage.png");
+        helmImage.setIconFile(helmChosen);
         helmImage.imageSetter();
 
-        ImageCreate swordImage = new ImageCreate(1080, 0, 500, 750);
-        swordImage.setIconFile("Images\\torsoImage.png");
+        String classChosen = ClassPanel.getClassChosen();
+        classChosen = StringToPath.convertPng(classChosen);
+
+        ImageCreate swordImage = new ImageCreate(1055, 0, 500, 775);
+        swordImage.setIconFile(classChosen);
         swordImage.imageSetter();
+
+        ImageCreate torsoImage = new ImageCreate(1080, 0, 500, 750);
+        torsoImage.setIconFile("Images\\torsoImage.png");
+        torsoImage.imageSetter();
 
         for (JButton jButton : mainPanel.getButtonsArray()) {
             jButton.addActionListener(this);

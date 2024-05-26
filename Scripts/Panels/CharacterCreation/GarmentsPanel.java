@@ -30,9 +30,9 @@ public class GarmentsPanel extends JPanel {
     // private static String helmetID;
     // private static String chestID;
     // private static String legsID;
-    public HelmetTypes helmetType;
-    public ChestTypes chestType;
-    public LegsTypes legsType;
+    public static HelmetTypes helmetType;
+    public static ChestTypes chestType;
+    public static LegsTypes legsType;
 
     public GarmentsPanel() {
         super();
@@ -40,6 +40,9 @@ public class GarmentsPanel extends JPanel {
         chest.setup(1);
         legs.setup(2);
 
+        helmetType = HelmetTypes.values()[Integer.parseInt(helmet.getBodyPartSliderValue().getText()) - 1];
+        chestType = ChestTypes.values()[Integer.parseInt(chest.getBodyPartSliderValue().getText()) - 1];
+        legsType = LegsTypes.values()[Integer.parseInt(legs.getBodyPartSliderValue().getText()) - 1];
         // Set propriedades do objeto
         this.setBounds(500, 150, 350, 500);
         this.setBackground(Color.ORANGE);
@@ -93,6 +96,7 @@ public class GarmentsPanel extends JPanel {
                 AudioHandler.audioPlay("Music\\buttonClicked2.wav");
                 if (e.getSource() == confirmButton) {
                     helmetType = HelmetTypes.values()[Integer.parseInt(helmet.getBodyPartSliderValue().getText()) - 1];
+                    System.out.println(helmetType);
                     chestType = ChestTypes.values()[Integer.parseInt(chest.getBodyPartSliderValue().getText()) - 1];
                     legsType = LegsTypes.values()[Integer.parseInt(legs.getBodyPartSliderValue().getText()) - 1];
 
@@ -110,6 +114,8 @@ public class GarmentsPanel extends JPanel {
             }
 
         });
+
+
 
         this.add(buttonImage);
         this.add(confirmButton);
