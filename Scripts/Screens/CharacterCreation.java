@@ -19,7 +19,7 @@ import Scripts.Panels.CharacterCreation.ClassPanel;
 import Scripts.Panels.CharacterCreation.MainPanel;
 import Scripts.Panels.CharacterCreation.NamePanel;
 import Scripts.Panels.CharacterCreation.GarmentsPanel;
-import Scripts.ShowCharacter.ShowCharacter;
+import Scripts.ShowCharacter;
 
 public class CharacterCreation extends JPanel implements ActionListener {
     ArrayList<JPanel> subPanelsArrayList = new ArrayList<JPanel>();
@@ -29,8 +29,6 @@ public class CharacterCreation extends JPanel implements ActionListener {
     GarmentsPanel garmentsPanel = new GarmentsPanel();
     ClassPanel classPanel = new ClassPanel();
     AppearancePanel appearancePanel = new AppearancePanel();
-
-    ShowCharacter showCharacter = new ShowCharacter();
 
     public CharacterCreation() {
         super();
@@ -45,7 +43,7 @@ public class CharacterCreation extends JPanel implements ActionListener {
         backgroundImage.imageSetter();
         this.add(backgroundImage);
 
-
+        // Using ShowCharacter to setup images
         ShowCharacter.setupImages(this);
 
         for (JButton jButton : mainPanel.getButtonsArray()) {
