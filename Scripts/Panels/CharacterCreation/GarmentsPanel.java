@@ -94,8 +94,8 @@ public class GarmentsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AudioHandler.audioPlay("Music\\buttonClicked2.wav");
-                if (e.getSource() == confirmButton) {
-                    helmetType = HelmetTypes.values()[Integer.parseInt(helmet.getBodyPartSliderValue().getText()) - 1];
+
+                    helmetType = HelmetTypes.values()[Integer.parseInt(helmet.getBodyPartSliderValue().getText())-1];
                     System.out.println(helmetType);
                     chestType = ChestTypes.values()[Integer.parseInt(chest.getBodyPartSliderValue().getText()) - 1];
                     legsType = LegsTypes.values()[Integer.parseInt(legs.getBodyPartSliderValue().getText()) - 1];
@@ -111,7 +111,7 @@ public class GarmentsPanel extends JPanel {
                     ChosenAttPanel.getSaveBackGNDPanel().setVisible(true);
                     ChosenAttPanel.updatePanel(NamePanel.getNameChosen(), ClassPanel.getClassChosen());
                 }
-            }
+    
 
         });
 

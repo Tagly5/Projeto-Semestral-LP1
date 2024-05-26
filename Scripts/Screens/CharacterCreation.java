@@ -9,18 +9,17 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Scripts.AudioHandler;
 import Scripts.ImagesConversion.ImageCreate;
-import Scripts.ImagesConversion.StringToPath;
 import Scripts.Panels.CharacterCreation.AppearancePanel;
 import Scripts.Panels.CharacterCreation.ChosenAttPanel;
 import Scripts.Panels.CharacterCreation.ClassPanel;
 import Scripts.Panels.CharacterCreation.MainPanel;
 import Scripts.Panels.CharacterCreation.NamePanel;
 import Scripts.Panels.CharacterCreation.GarmentsPanel;
+import Scripts.ShowCharacter.ShowCharacter;
 
 public class CharacterCreation extends JPanel implements ActionListener {
     ArrayList<JPanel> subPanelsArrayList = new ArrayList<JPanel>();
@@ -30,6 +29,8 @@ public class CharacterCreation extends JPanel implements ActionListener {
     GarmentsPanel garmentsPanel = new GarmentsPanel();
     ClassPanel classPanel = new ClassPanel();
     AppearancePanel appearancePanel = new AppearancePanel();
+
+    ShowCharacter showCharacter = new ShowCharacter();
 
     public CharacterCreation() {
         super();
@@ -42,32 +43,10 @@ public class CharacterCreation extends JPanel implements ActionListener {
         ImageCreate backgroundImage = new ImageCreate(425, 50, 500, 700);
         backgroundImage.setIconFile("Images\\subpanelBackground.png");
         backgroundImage.imageSetter();
+        this.add(backgroundImage);
 
-        ImageCreate UIimage = new ImageCreate(1080, 0, 500, 750);
-        UIimage.setIconFile("Images\\hud1.png");
-        UIimage.imageSetter();
 
-        ImageCreate charImage = new ImageCreate(1080, 0, 500, 750);
-        charImage.setIconFile("Images\\charImage.png");
-        charImage.imageSetter();
-
-        String helmChosen = GarmentsPanel.helmetType.toString();
-        helmChosen = StringToPath.convertPng(helmChosen);
-
-        ImageCreate helmImage = new ImageCreate(1080, 0, 500, 750);
-        helmImage.setIconFile(helmChosen);
-        helmImage.imageSetter();
-
-        String classChosen = ClassPanel.getClassChosen();
-        classChosen = StringToPath.convertPng(classChosen);
-
-        ImageCreate swordImage = new ImageCreate(1055, 0, 500, 775);
-        swordImage.setIconFile(classChosen);
-        swordImage.imageSetter();
-
-        ImageCreate torsoImage = new ImageCreate(1080, 0, 500, 750);
-        torsoImage.setIconFile("Images\\torsoImage.png");
-        torsoImage.imageSetter();
+        ShowCharacter.setupImages(this);
 
         for (JButton jButton : mainPanel.getButtonsArray()) {
             jButton.addActionListener(this);
@@ -95,12 +74,6 @@ public class CharacterCreation extends JPanel implements ActionListener {
         subPanelsArrayList.add(classPanel);
         subPanelsArrayList.add(appearancePanel);
         subPanelsArrayList.add(garmentsPanel);
-
-        this.add(backgroundImage);
-        this.add(UIimage);
-        this.add(helmImage);
-        this.add(swordImage);
-        this.add(charImage);
 
         this.add(mainPanel);
         this.add(mainPanel.getBackPanel());
