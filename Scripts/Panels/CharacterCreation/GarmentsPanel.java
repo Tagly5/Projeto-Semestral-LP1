@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Scripts.AudioHandler;
@@ -20,6 +19,7 @@ import Scripts.ImagesConversion.Enums.HelmetTypes;
 import Scripts.ImagesConversion.Enums.LegsTypes;
 import Scripts.Panels.CharacterCreation.Bodypart.BodyPart;
 
+
 public class GarmentsPanel extends JPanel {
     public BodyPart helmet = new BodyPart("Capacete", 3);
     public BodyPart chest = new BodyPart("Peitoral", 3);
@@ -27,9 +27,6 @@ public class GarmentsPanel extends JPanel {
 
     private JButton confirmButton = new JButton("Confirmar");
 
-    // private static String helmetID;
-    // private static String chestID;
-    // private static String legsID;
     public static HelmetTypes helmetType;
     public static ChestTypes chestType;
     public static LegsTypes legsType;
@@ -43,7 +40,7 @@ public class GarmentsPanel extends JPanel {
         helmetType = HelmetTypes.values()[Integer.parseInt(helmet.getBodyPartSliderValue().getText()) - 1];
         chestType = ChestTypes.values()[Integer.parseInt(chest.getBodyPartSliderValue().getText()) - 1];
         legsType = LegsTypes.values()[Integer.parseInt(legs.getBodyPartSliderValue().getText()) - 1];
-        // Set propriedades do objeto
+
         this.setBounds(500, 150, 350, 500);
         this.setBackground(Color.ORANGE);
         this.setLayout(null);
@@ -67,7 +64,6 @@ public class GarmentsPanel extends JPanel {
         buttonImage.setIconFile("Images\\button.png");
         buttonImage.imageSetter();
 
-        // Set propriedades do botao
         confirmButton.setBounds(50, 400, 260, 100);
         confirmButton.setFont(new Font("Adobe Garamond Pro", Font.PLAIN, 28));
         confirmButton.setForeground(Color.WHITE);
@@ -95,27 +91,20 @@ public class GarmentsPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 AudioHandler.audioPlay("Music\\buttonClicked2.wav");
 
-                    helmetType = HelmetTypes.values()[Integer.parseInt(helmet.getBodyPartSliderValue().getText())-1];
-                    System.out.println(helmetType);
-                    chestType = ChestTypes.values()[Integer.parseInt(chest.getBodyPartSliderValue().getText()) - 1];
-                    legsType = LegsTypes.values()[Integer.parseInt(legs.getBodyPartSliderValue().getText()) - 1];
+                helmetType = HelmetTypes.values()[Integer.parseInt(helmet.getBodyPartSliderValue().getText()) - 1];
+                chestType = ChestTypes.values()[Integer.parseInt(chest.getBodyPartSliderValue().getText()) - 1];
+                legsType = LegsTypes.values()[Integer.parseInt(legs.getBodyPartSliderValue().getText()) - 1];
 
-                    // JOptionPane.showMessageDialog(null, helmetType);
-                    // JOptionPane.showMessageDialog(null, chestType);
-                    // JOptionPane.showMessageDialog(null, legsType);
-                    
-                    setVisible(false);
-                    ChosenAttPanel.getTitlesPanel().setVisible(true);
-                    ChosenAttPanel.getPanel().setVisible(true);
-                    ChosenAttPanel.getSavePanel().setVisible(true);
-                    ChosenAttPanel.getSaveBackGNDPanel().setVisible(true);
-                    ChosenAttPanel.updatePanel(NamePanel.getNameChosen(), ClassPanel.getClassChosen());
-                }
-    
 
+
+                setVisible(false);
+                ChosenAttPanel.getTitlesPanel().setVisible(true);
+                ChosenAttPanel.getPanel().setVisible(true);
+                ChosenAttPanel.getSavePanel().setVisible(true);
+                ChosenAttPanel.getSaveBackGNDPanel().setVisible(true);
+                ChosenAttPanel.updatePanel(NamePanel.getNameChosen(), ClassPanel.getClassChosen());
+            }
         });
-
-
 
         this.add(buttonImage);
         this.add(confirmButton);

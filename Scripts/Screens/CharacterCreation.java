@@ -12,6 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Scripts.AudioHandler;
+import Scripts.ImagesConversion.Enums.ChestTypes;
+import Scripts.ImagesConversion.Enums.HelmetTypes;
+import Scripts.ImagesConversion.Enums.LegsTypes;
 import Scripts.ImagesConversion.ImageCreate;
 import Scripts.Panels.CharacterCreation.AppearancePanel;
 import Scripts.Panels.CharacterCreation.ChosenAttPanel;
@@ -43,8 +46,7 @@ public class CharacterCreation extends JPanel implements ActionListener {
         backgroundImage.imageSetter();
         this.add(backgroundImage);
 
-        // Using ShowCharacter to setup images
-        ShowCharacter.setupImages(this);
+        ShowCharacter.UpdateImages(this);
 
         for (JButton jButton : mainPanel.getButtonsArray()) {
             jButton.addActionListener(this);
@@ -127,6 +129,7 @@ public class CharacterCreation extends JPanel implements ActionListener {
                         panel.setVisible(true);
                         classPanel.getBackGNDPanel().setVisible(true);
 
+
                     } else
                         panel.setVisible(false);
                 }
@@ -143,4 +146,5 @@ public class CharacterCreation extends JPanel implements ActionListener {
             }
         }
     }
+
 }
