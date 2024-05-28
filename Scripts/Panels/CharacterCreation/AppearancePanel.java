@@ -88,7 +88,7 @@ public class AppearancePanel extends JPanel {
         buttonImage.imageSetter();
 
         // Set propriedades do botao
-        confirmButton = new JButton("Confirm");
+        confirmButton = new JButton("Confirmar");
         confirmButton.setBounds(50, 400, 260, 100);
         confirmButton.setFont(new Font("Adobe Garamond Pro", Font.PLAIN, 28));
         confirmButton.setForeground(Color.WHITE);
@@ -133,6 +133,5 @@ public class AppearancePanel extends JPanel {
 
         this.add(confirmButton);
         this.add(buttonImage);
-
     }
 }

@@ -46,7 +46,7 @@ public class SearchCharacter extends JPanel {
         insidePanel.setBackground(Color.BLUE);
 
         // Set propriedade do titleText
-        this.titleText.setBounds(50, 50, 500, 70);
+        this.titleText.setBounds(50, 50, 600, 70);
         this.titleText.setFont(new Font("Adobe Garamond Pro", Font.PLAIN, 60));
         this.titleText.setHorizontalAlignment(JTextField.CENTER);
         this.titleText.setOpaque(false);

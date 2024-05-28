@@ -26,7 +26,7 @@ public class NamePanel extends JPanel {
     public NamePanel() {
         super();
         // Set propriedade do titleText
-        this.titleText.setBounds(40, 20, 270, 50);
+        this.titleText.setBounds(20, 20, 300, 50);
         this.titleText.setFont(new Font("Adobe Garamond Pro", Font.PLAIN, 40));
         this.titleText.setHorizontalAlignment(JTextField.CENTER);
         this.titleText.setOpaque(false);
