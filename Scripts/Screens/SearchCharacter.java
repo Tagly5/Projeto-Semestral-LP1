@@ -122,6 +122,7 @@ public class SearchCharacter extends JPanel {
                         if (charSelected != null) {
                             // SearchCharacter.this.removeAll();
                             repo.deleteCharacter(charSelected);
+                            CharacterDisplay.removeImage(displayCharPanel);
                             deleteButtonImage.setIconFile("Images\\deleteStandardButton.png");
                             deleteButtonImage.imageSetter();
                             deleteButton.setText("Deletado!");
