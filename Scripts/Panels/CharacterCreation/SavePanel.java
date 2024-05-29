@@ -20,7 +20,6 @@ import Scripts.ImagesConversion.Enums.ChestTypes;
 import Scripts.ImagesConversion.Enums.EyeColorTypes;
 import Scripts.ImagesConversion.Enums.HelmetTypes;
 import Scripts.ImagesConversion.Enums.LegsTypes;
-import Scripts.ImagesConversion.Enums.PhysicTypes;
 import Scripts.ImagesConversion.Enums.SkinColorTypes;
 import Scripts.Model.GameCharacter;
 import Scripts.Repository.CharacterRepository;
@@ -35,7 +34,6 @@ public class SavePanel extends JPanel {
     public LegsTypes legsInput;
     public EyeColorTypes eyesInput;
     public SkinColorTypes skinInput;
-    public PhysicTypes physicInput;
     private JLabel nameTitle, classTitle;
     private ArrayList<JLabel> textArray = new ArrayList<JLabel>();
 
@@ -75,7 +73,6 @@ public class SavePanel extends JPanel {
         classInput = new JLabel(character.getSkillClass());
         eyesInput = character.getEyeColor();
         skinInput = character.getSkinColor();
-        physicInput = character.getPhysicType();
         helmInput = character.getHelmTypes();
         chestInput = character.getChestTypes();
         legsInput = character.getLegsTypes();
@@ -111,7 +108,7 @@ public class SavePanel extends JPanel {
                     buttonImage.imageSetter();
                     
                     repo.addCharacter(new GameCharacter(nameInput.getText(), classInput.getText(), eyesInput,
-                            skinInput, physicInput, helmInput, chestInput, legsInput));
+                            skinInput, helmInput, chestInput, legsInput));
 
                 } else {
                     AudioHandler.audioPlay("Music\\charNotSaved.wav");
@@ -180,7 +177,6 @@ public class SavePanel extends JPanel {
         classInput.setText(character.getSkillClass());
         eyesInput = character.getEyeColor();
         skinInput = character.getSkinColor();
-        physicInput = character.getPhysicType();
         helmInput = character.getHelmTypes();
         chestInput = character.getChestTypes();
         legsInput = character.getLegsTypes();
